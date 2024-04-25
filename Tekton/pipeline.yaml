@@ -1,0 +1,12 @@
+apiVersion: tekton.dev/v1beta1
+kind: Pipeline
+metadata:
+  name: build-and-deploy-pipeline
+spec:
+  tasks:
+  - name: build-docker-image
+    taskRef:
+      name: kaniko
+    params:
+    - name: IMAGE
+      value: "https://github.com/deekshant007/ruby_rail.git"
